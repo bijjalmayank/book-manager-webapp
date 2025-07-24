@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import confetti from "canvas-confetti";
-import loadingGif from "./assets/uploading.gif"; // Ensure this exists
+import loadingGif from "./assets/uploading.gif"; // Make sure this file exists
 
-const API_URL = process.env.REACT_APP_API_URL;
+const baseURL = process.env.REACT_APP_API_URL;
 
 const BookForm = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const BookForm = () => {
   const [books, setBooks] = useState([]);
   const [popup, setPopup] = useState({ type: "", message: "" });
   const [error, setError] = useState("");
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedBook, setSelectedBook] = useState(null); // for modal
 
   const handleChange = (e) => {
     if (e.target.name === "coverImage") {
@@ -39,7 +39,7 @@ const BookForm = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get(`${API_URL}/books`);
+      const res = await axios.get(`${baseURL}/api/books`);
       setBooks(res.data);
     } catch (err) {
       console.error("Error fetching books:", err);
@@ -66,7 +66,7 @@ const BookForm = () => {
     data.append("coverImage", formData.coverImage);
 
     try {
-      await axios.post(`${API_URL}/books`, data, {
+      await axios.post(`${baseURL}/api/books`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -87,7 +87,7 @@ const BookForm = () => {
   const handleDelete = async (id) => {
     setDeleting(id);
     try {
-      await axios.delete(`${API_URL}/books/${id}`);
+      await axios.delete(`${baseURL}/api/books/${id}`);
       setPopup({ type: "success", message: "🗑️ Book deleted successfully!" });
       fetchBooks();
     } catch (err) {
@@ -143,6 +143,7 @@ const BookForm = () => {
           </button>
         </form>
 
+        {/* 🔁 Uploading Overlay */}
         {uploading && (
           <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
             <div className="bg-white p-6 rounded shadow-lg text-center">
@@ -156,6 +157,7 @@ const BookForm = () => {
           </div>
         )}
 
+        {/* ✅ Popup Message */}
         {popup.message && (
           <div className="fixed top-10 left-1/2 transform -translate-x-1/2 bg-white border px-6 py-4 rounded shadow-lg z-50 flex items-center gap-4">
             <span
@@ -174,6 +176,7 @@ const BookForm = () => {
           </div>
         )}
 
+        {/* 📚 Book List */}
         <div className="space-y-4">
           {books.map((book) => (
             <div
@@ -195,7 +198,7 @@ const BookForm = () => {
 
               <button
                 onClick={(e) => {
-                  e.stopPropagation();
+                  e.stopPropagation(); // prevent opening modal on delete
                   handleDelete(book._id);
                 }}
                 className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm"
@@ -206,6 +209,7 @@ const BookForm = () => {
           ))}
         </div>
 
+        {/* 🖼️ Modal Popup */}
         {selectedBook && (
           <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
             <div className="bg-white p-6 rounded shadow-lg max-w-sm text-center relative">

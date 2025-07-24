@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Book</title>
+</head>
+<body>
+  <h1>Upload a Book</h1>
+  <form action="http://localhost:5000/api/books" method="POST" enctype="multipart/form-data">
+    <label>Title:</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Author:</label><br>
+    <input type="text" name="author" required><br><br>
+
+    <label>Cover Image (JPG/PNG):</label><br>
+    <input type="file" name="coverImage" accept="image/*" required><br><br>
+
+    <button type="submit">Upload Book</button>
+  </form>
+</body>
+</html>

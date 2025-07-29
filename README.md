@@ -53,3 +53,10 @@ https://drive.google.com/file/d/1zx5tDpYyC71lhjR6B_-yTOhNwP3ysoNA/view?usp=shari
 https://drive.google.com/file/d/1R_f7VOYxVEkeB7gG0FKS5WxWC0x5JMqB/view?usp=sharing
 https://drive.google.com/file/d/1fvYgPMHxzKV5KOvWvPxbLXdZc89Rz7On/view?usp=sharing
 
+<img width="1920" height="1080" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/643d5174-f589-46f8-a85d-3d7ef7661b6a" />
+<img width="1920" height="1080" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/6f05238e-eb2f-4580-9b02-110a23df827d" />
+<img width="1920" height="1080" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/9217f900-fb9f-458b-8b41-3efa0c73a4fa" />
+<img width="1920" height="1080" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/4fffd335-9a35-4f89-b994-10d66e97bb29" />
+<img width="782" height="422" alt="Screenshot 2025-07-25 044126" src="https://github.com/user-attachments/assets/8f14bc59-8222-44d4-ab5d-1778827b8fc2" />
+
+
